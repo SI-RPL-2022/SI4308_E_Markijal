@@ -12,26 +12,35 @@
                 {{$message}}
             </div>
             @endif
-            <div class="form-group">
-                <label for="">Nama</label>
-                <input type="text" name="name" value="{{ Auth::user()->name }}" id="" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="">Email</label>
-                <input type="email" name="email" value="{{ Auth::user()->email }}" id="" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="">Alamat</label>
-                <input type="text" name="alamat" value="{{ Auth::user()->alamat }}" id="" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="">No HP</label>
-                <input type="number" name="no_hp" value="{{ Auth::user()->no_hp }}" id="" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="">Password <small class="text-danger">*Isi bila ingin mengganti</small></label>
-                <input type="password" name="password" id="" class="form-control">
-            </div>
+            <form action="{{ route('profile.update', Auth::user()->id) }}" method="post">
+                @csrf
+                @method('put')
+                <input type="hidden" name="role" value="{{ Auth::user()->role }}">
+                <div class="form-group">
+                    <label for="">Nama</label>
+                    <input type="text" name="name" value="{{ Auth::user()->name }}" id="" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input type="email" name="email" value="{{ Auth::user()->email }}" id="" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">Alamat</label>
+                    <input type="text" name="alamat" value="{{ Auth::user()->alamat }}" id="" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">No HP</label>
+                    <input type="number" name="no_hp" value="{{ Auth::user()->no_hp }}" id="" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">Password <small class="text-danger">*Isi bila ingin mengganti</small></label>
+                    <input type="password" name="password" id="" class="form-control">
+                </div>
+                <div class="form-group mt-3">
+                    <button class="btn btn-primary">
+                        Update
+                    </button>
+                </div>
             </form>
         </div>
     </div>
