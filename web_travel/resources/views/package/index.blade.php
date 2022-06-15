@@ -7,7 +7,9 @@
             <form action="" method="get">
                 @csrf
                 <div class="form-group row">
-                    /**search */
+                    <div class="col-lg">
+                        <input type="text" name="search" placeholder="Pengen Kemana?" id="" class="form-control">
+                    </div>
                     <div class="col">
                         <button class="btn btn-primary">Cari</button>
                     </div>

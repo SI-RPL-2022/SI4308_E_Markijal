@@ -53,7 +53,12 @@
                         </tr>
                         <tr>
                             <th>
-                                /**ini button book now */
+                                <form action="{{ route('paket.create') }}" method="get">
+                                    <div class="d-grid mx-auto">
+                                        <input type="hidden" name="paket_id" value="{{ $package->id }}">
+                                        <button class="btn btn-primary">Book Now</button>
+                                    </div>
+                                </form>
                             </th>
                         </tr>
                     </table>
